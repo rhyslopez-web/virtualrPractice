@@ -16,7 +16,7 @@ const Workflow = () => {
             </h2>
         </div>
 
-        <div className='flex justify-center mt-20'>
+        <div className='flex justify-center mt-10'>
             <div className='flex lg:flex-row flex-col w-4/5 gap-y-10'>
                 <div className='lg:w-1/2 flex'>
                     <img src={code} alt="" />

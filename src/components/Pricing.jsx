@@ -1,12 +1,11 @@
 import React from 'react'
 import { pricingOptions } from '../constants'
 import { CheckCircle2 } from 'lucide-react'
-import SecondaryBtn from './SecondaryBtn'
 
 const Pricing = () => {
   return (
     <div className='mt-20 flex flex-col justify-center items-center'>
-            <h2 className='text-3xl sm:text-4xl lg:text-5xl text-center my-8 tracking-wide'>Pricing</h2>
+        <h2 className='text-3xl sm:text-4xl lg:text-5xl text-center my-8 tracking-wide'>Pricing</h2>
 
         <div className='flex flex-col lg:flex-row gap-5 w-4/5 mt-10'>
             {pricingOptions.map((pricing, index) => (
