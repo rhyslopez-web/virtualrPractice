@@ -1,17 +1,27 @@
 import React from 'react'
 import PrimaryBtn from './PrimaryBtn'
 import SecondaryBtn from './SecondaryBtn'
-import { Video } from 'lucide-react'
 import video1 from "../assets/video1.mp4";
-import video2 from "../assets/video2.mp4";
-
+import video2 from "../assets/video2.mp4"
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
 
 const HeroSection = () => {
+
+  const gsapAnimation = useGSAP(() => {
+    gsap.from('#heading', {
+        y: -100,
+        opacity: -1,
+        ease: "power1.inOut",
+        duration: 1
+    })
+  }, [])  
+
   return (
     <>
         <div className='flex flex-col justify-center items-center lg:mt-20 px-10'>
             {/* Hero Heading */}
-            <h1 className='text-6xl sm:text-6xl lg:text-7xl text-center tracking-wide font-normal lg:w-1/2'>
+            <h1 id='heading' className='text-6xl sm:text-6xl lg:text-7xl text-center tracking-wide font-normal lg:w-1/2 overflow-hidden'>
                 Brainwave build tools
                 <span className='bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent tracking-wide font-normal'>
                     {" "}

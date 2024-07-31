@@ -1,13 +1,38 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { pricingOptions } from '../constants'
 import { CheckCircle2 } from 'lucide-react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Pricing = () => {
+
+  const scrollRef = useRef()
+  
+  useGSAP(() => {
+    const pricingCard = gsap.utils.toArray(scrollRef.current.children);
+
+    pricingCard.forEach((card) => {
+        gsap.from(card, {
+            opacity: -2,
+            stagger: 2,
+            scrollTrigger: {
+                trigger: card,
+                // start: 'bottom, bottom',
+            },
+            ease: 'power4.inOut',
+            duration: 1
+        })
+    })
+  }, [])
+
   return (
     <div className='mt-20 flex flex-col justify-center items-center'>
-        <h2 className='text-3xl sm:text-4xl lg:text-5xl text-center my-8 tracking-wide'>Pricing</h2>
+        <h2 id='heading' className='text-3xl sm:text-4xl lg:text-5xl text-center my-8 tracking-wide'>Pricing</h2>
 
-        <div className='flex flex-col lg:flex-row gap-5 w-4/5 mt-10'>
+        <div ref={scrollRef} className='flex flex-col lg:flex-row gap-5 w-4/5 mt-10 overflow-hidden'>
             {pricingOptions.map((pricing, index) => (
                 <div key={index} className='w-full lg:w-1/3 flex flex-col border border-neutral-700 p-10 rounded-lg justify-evenly gap-5'>
                     <p className='text-4xl'>
