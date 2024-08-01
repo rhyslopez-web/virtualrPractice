@@ -5,6 +5,7 @@ import {navItems} from '../constants'
 import {X, Menu} from "lucide-react"
 import PrimaryBtn from './PrimaryBtn'
 import SecondaryBtn from './SecondaryBtn'
+import { disablePageScroll, enablePageScroll } from 'scroll-lock'
 
 
 const Navbar = () => {
@@ -12,9 +13,10 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen)
+      setMobileMenuOpen(!mobileMenuOpen)
+      mobileMenuOpen ? enablePageScroll() : disablePageScroll()
   }
-    
+
   return (
     <nav className='sticky z-50 py-5 top-0 bg-[#121212]'>
         <div className='container px-4 mx-auto relative text-md space-y-3'>
@@ -28,7 +30,7 @@ const Navbar = () => {
                 {/* Navbar Desktop Links */}
                 <ul className='hidden lg:flex lg:space-x-10 lg:col-span-2 lg:justify-center'>
                     {navItems.map((item, index) => (
-                        <li>
+                        <li key={index}>
                             <a href={item.href}>{item.label}</a>
                         </li>
                     ))}
@@ -49,10 +51,10 @@ const Navbar = () => {
             </div>
 
             {mobileMenuOpen && (
-                <div className="flex flex-col gap-5">
+                <div id='mobileNav' className="flex flex-col gap-5">
                     <ul className='flex flex-col justify-center items-center gap-5'>
                         {navItems.map((item, index) => (
-                            <li>
+                            <li key={index}>
                                 <a href={item.href}>{item.label}</a>
                             </li>
                         ))}

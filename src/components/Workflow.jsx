@@ -24,7 +24,7 @@ const Workflow = () => {
 
                 <div className="flex flex-col justify-evenly lg:w-1/2 gap-5 lg:gap-0">
                     {checklistItems.map((item, index) => (
-                        <div className='flex gap-5'>
+                        <div key={index} className='flex gap-5'>
                             <div className='h-10 w-10 p-2 flex justify-center items-center text-green-500'>
                                 <CheckCircle2/>
                             </div>

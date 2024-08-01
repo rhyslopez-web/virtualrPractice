@@ -5,28 +5,28 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 
-gsap.registerPlugin(ScrollTrigger)
+// gsap.registerPlugin(ScrollTrigger)
 
 const Pricing = () => {
 
   const scrollRef = useRef()
   
-  useGSAP(() => {
+  /*useGSAP(() => {
     const pricingCard = gsap.utils.toArray(scrollRef.current.children);
 
+    // animations for cards still need to be smoother
     pricingCard.forEach((card) => {
         gsap.from(card, {
-            opacity: -2,
-            stagger: 2,
+            y: 500,
+            stagger: 10,
             scrollTrigger: {
                 trigger: card,
-                // start: 'bottom, bottom',
+                start: 'top bottom',
             },
-            ease: 'power4.inOut',
-            duration: 1
         })
     })
   }, [])
+  */
 
   return (
     <div className='mt-20 flex flex-col justify-center items-center'>
