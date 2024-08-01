@@ -51,11 +51,11 @@ const Navbar = () => {
             </div>
 
             {mobileMenuOpen && (
-                <div id='mobileNav' className="flex flex-col gap-5">
-                    <ul className='flex flex-col justify-center items-center gap-5'>
+                <div id='mobileNav' className="flex flex-col gap-10 h-[90vh] justify-center">
+                    <ul className='flex flex-col justify-center items-center gap-10'>
                         {navItems.map((item, index) => (
                             <li key={index}>
-                                <a href={item.href}>{item.label}</a>
+                                <a onClick={toggleMobileMenu} href={item.href}>{item.label}</a>
                             </li>
                         ))}
                     </ul>
