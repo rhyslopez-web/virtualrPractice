@@ -9,7 +9,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className='flex flex-col gap-20 justify-center'>
+    <>
       <Navbar/>
       <HeroSection/>
       <FeatureSection/>
@@ -17,7 +17,7 @@ function App() {
       <Pricing/>
       <Reviews/>
       <Footer/>
-    </div>
+    </>
   )
 }
 

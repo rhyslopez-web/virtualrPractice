@@ -5,7 +5,7 @@ import { CheckCircle2 } from 'lucide-react'
 
 const Workflow = () => {
   return (
-    <>
+    <div id='workflow'>
         <div className='flex justify-center'>
             <h2 className='text-4xl sm:text-6xl lg:text-5xl text-center tracking-wide font-normal w-4/5 lg:w-1/2 mt-20'>
                 Accelerate your
@@ -38,7 +38,7 @@ const Workflow = () => {
                 </div>
             </div>
         </div>
-    </>
+    </div>
   )
 }
 

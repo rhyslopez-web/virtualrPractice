@@ -11,7 +11,7 @@ const Pricing = () => {
 
   const scrollRef = useRef()
   
-  /*useGSAP(() => {
+  useGSAP(() => {
     const pricingCard = gsap.utils.toArray(scrollRef.current.children);
 
     // animations for cards still need to be smoother
@@ -26,10 +26,10 @@ const Pricing = () => {
         })
     })
   }, [])
-  */
+
 
   return (
-    <div className='mt-20 flex flex-col justify-center items-center'>
+    <div id='pricing' className='mt-20 flex flex-col justify-center items-center'>
         <h2 id='heading' className='text-3xl sm:text-4xl lg:text-5xl text-center my-8 tracking-wide'>Pricing</h2>
 
         <div ref={scrollRef} className='flex flex-col lg:flex-row gap-5 w-4/5 mt-10 overflow-hidden'>

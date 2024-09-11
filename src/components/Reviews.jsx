@@ -3,7 +3,7 @@ import { testimonials } from '../constants'
 
 const Reviews = () => {
   return (
-    <div className='mt-20'>
+    <div id='testimonials' className='mt-20'>
         <h2 className='text-3xl sm:text-4xl lg:text-5xl text-center my-8 tracking-wide'>
             What people are saying
         </h2>

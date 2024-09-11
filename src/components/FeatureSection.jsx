@@ -3,7 +3,7 @@ import { features } from '../constants'
 
 const FeatureSection = () => {
   return (
-    <div className='mt-20 flex flex-col justify-center items-center'>
+    <div id='features' className='mt-20 flex flex-col justify-center items-center'>
         {/* Features pill*/}
         <div className='text-center'>
             <span className='px-5 py-2 bg-purple-950 rounded-full'>FEATURES</span>

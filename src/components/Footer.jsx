@@ -3,7 +3,7 @@ import { resourcesLinks, platformLinks, communityLinks } from '../constants'
 
 const Footer = () => {
   return (
-    <footer className='bg-black flex flex-col lg:flex-row lg:justify-evenly p-10 mt-20 gap-10'>
+    <footer id='footer' className='bg-black flex flex-col lg:flex-row lg:justify-evenly p-10 mt-20 gap-10'>
         <div>
             <h5 className='text-md font-semibold mb-4'>Resources</h5>
             <ul className='space-y-2'>

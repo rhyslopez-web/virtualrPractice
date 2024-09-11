@@ -21,7 +21,7 @@ const HeroSection = () => {
     <>
         <div className='flex flex-col justify-center items-center lg:mt-20 px-10'>
             {/* Hero Heading */}
-            <h1 id='heading' className='text-6xl sm:text-6xl lg:text-7xl text-center tracking-wide font-normal lg:w-1/2 overflow-hidden'>
+            <h1 id='heading' className='text-4xl lg:text-7xl text-center tracking-wide font-normal lg:w-1/2 overflow-hidden'>
                 Brainwave build tools
                 <span className='bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent tracking-wide font-normal'>
                     {" "}
@@ -36,7 +36,7 @@ const HeroSection = () => {
             </p>
 
             {/* Hero C2As */}
-            <div className="flex gap-3 justify-center items-center mt-10">
+            <div className="flex flex-col lg:flex-row gap-3 justify-center items-center mt-10">
                 <SecondaryBtn link="#">Documentation</SecondaryBtn>
                 <PrimaryBtn link="#">Get Started</PrimaryBtn>
             </div>
