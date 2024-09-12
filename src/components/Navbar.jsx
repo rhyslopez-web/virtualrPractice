@@ -19,8 +19,8 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='fixed z-50 py-5 top-0 right-0 left-0 bg-gradient-to-b from-[#121212] to-transparent'>
-        <div className='container px-4 mx-auto relative text-md space-y-3'>
+    <nav className='fixed top-0 right-0 left-0 bg-gradient-to-b from-[#121212] to-transparent'>
+        <div className='container px-4 mx-auto relative text-md py-5 z-20'>
             <div className="grid lg:grid-cols-4 grid-cols-2 items-center justify-between">
                 {/* Navbar Branding */}
                 <div className='flex items-center'>
@@ -50,44 +50,46 @@ const Navbar = () => {
                     </button>
                 </div>
             </div>
-            
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <motion.div 
-                    initial={{
-                        opacity: 0,
-                    }}
-                    animate={{
-                        opacity: 1,
-                    }}
-                    transition={{
-                        duration: 0.1
-                    }}
-                    exit={{
-                        opacity: 0
-                    }}
-                    
-                    id='mobileNav' className="flex flex-col gap-10 h-screen fixed top-0 right-0 left-0 items-center justify-center bg-[#121212]
-                    border-white z-10">
-                        <button onClick={toggleMobileMenu} className='absolute right-4 top-5'>
-                            {mobileMenuOpen ? <X/> : <Menu/>}
-                        </button>
-                        <ul className='flex flex-col justify-center items-center gap-10'>
-                            {navItems.map((item, index) => (
-                                <li key={index}>
-                                    <a onClick={toggleMobileMenu} href={item.href}>{item.label}</a>
-                                </li>
-                            ))}
-                        </ul>
-
-                        <div className="flex gap-3 justify-center items-center">
-                            <SecondaryBtn link="#">Sign In</SecondaryBtn>
-                            <PrimaryBtn link="#">Join Now</PrimaryBtn>
-                        </div>
-                    </motion.div>    
-                )}
-            </AnimatePresence>
         </div>
+
+        <AnimatePresence>
+            {mobileMenuOpen && (
+                <motion.div 
+                initial={{
+                    x: -500,
+                }}
+                animate={{
+                    x: 0,
+                }}
+                transition={{
+                    duration: 0.7,
+                    ease: 'anticipate'
+                }}
+                exit={{
+                    x: -500
+                }}
+                
+                id='mobileNav' className="flex flex-col gap-10 items-center justify-center backdrop-blur-2xl h-screen
+                absolute top-0 right-0 left-0">
+                    <ul className='flex flex-col justify-center items-center gap-10'>
+                        {navItems.map((item, index) => (
+                            <li key={index} className=''>
+                                <a 
+                                className='text-xl' 
+                                onClick={toggleMobileMenu} 
+                                href={item.href}>{item.label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+
+                    <div className="flex gap-3">
+                        <SecondaryBtn link="#">Sign In</SecondaryBtn>
+                        <PrimaryBtn link="#">Join Now</PrimaryBtn>
+                    </div>
+                </motion.div>    
+            )}
+        </AnimatePresence>
     </nav>
   )
 }
