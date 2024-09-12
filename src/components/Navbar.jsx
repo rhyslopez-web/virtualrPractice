@@ -18,7 +18,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='sticky z-50 py-5 top-0 bg-[#121212]'>
+    <nav className='fixed z-50 py-5 top-0 right-0 left-0 bg-gradient-to-b from-[#121212] to-transparent'>
         <div className='container px-4 mx-auto relative text-md space-y-3'>
             <div className="grid lg:grid-cols-4 grid-cols-2 items-center justify-between">
                 {/* Navbar Branding */}

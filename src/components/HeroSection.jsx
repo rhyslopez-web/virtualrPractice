@@ -19,7 +19,7 @@ const HeroSection = () => {
 
   return (
     <>
-        <div className='flex flex-col justify-center items-center lg:mt-20 px-10'>
+        <div className='flex flex-col justify-center items-center mt-28 px-10'>
             {/* Hero Heading */}
             <h1 id='heading' className='text-4xl lg:text-7xl text-center tracking-wide font-normal lg:w-1/2 overflow-hidden'>
                 Brainwave build tools
