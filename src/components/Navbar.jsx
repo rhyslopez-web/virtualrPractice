@@ -6,6 +6,7 @@ import {X, Menu} from "lucide-react"
 import PrimaryBtn from './PrimaryBtn'
 import SecondaryBtn from './SecondaryBtn'
 import { disablePageScroll, enablePageScroll } from 'scroll-lock'
+import {AnimatePresence, motion} from 'framer-motion'
 
 
 const Navbar = () => {
@@ -14,7 +15,7 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => {
       setMobileMenuOpen(!mobileMenuOpen)
-      mobileMenuOpen ? enablePageScroll() : disablePageScroll()
+    //   mobileMenuOpen ? enablePageScroll() : disablePageScroll()
   }
 
   return (
@@ -49,23 +50,43 @@ const Navbar = () => {
                     </button>
                 </div>
             </div>
+            
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <motion.div 
+                    initial={{
+                        opacity: 0,
+                    }}
+                    animate={{
+                        opacity: 1,
+                    }}
+                    transition={{
+                        duration: 0.1
+                    }}
+                    exit={{
+                        opacity: 0
+                    }}
+                    
+                    id='mobileNav' className="flex flex-col gap-10 h-screen fixed top-0 right-0 left-0 items-center justify-center bg-[#121212]
+                    border-white z-10">
+                        <button onClick={toggleMobileMenu} className='absolute right-4 top-5'>
+                            {mobileMenuOpen ? <X/> : <Menu/>}
+                        </button>
+                        <ul className='flex flex-col justify-center items-center gap-10'>
+                            {navItems.map((item, index) => (
+                                <li key={index}>
+                                    <a onClick={toggleMobileMenu} href={item.href}>{item.label}</a>
+                                </li>
+                            ))}
+                        </ul>
 
-            {mobileMenuOpen && (
-                <div id='mobileNav' className="flex flex-col gap-10 h-[90vh] justify-center">
-                    <ul className='flex flex-col justify-center items-center gap-10'>
-                        {navItems.map((item, index) => (
-                            <li key={index}>
-                                <a onClick={toggleMobileMenu} href={item.href}>{item.label}</a>
-                            </li>
-                        ))}
-                    </ul>
-
-                    <div className="flex gap-3 justify-center items-center">
-                        <SecondaryBtn link="#">Sign In</SecondaryBtn>
-                        <PrimaryBtn link="#">Join Now</PrimaryBtn>
-                    </div>
-                </div>    
-            )}
+                        <div className="flex gap-3 justify-center items-center">
+                            <SecondaryBtn link="#">Sign In</SecondaryBtn>
+                            <PrimaryBtn link="#">Join Now</PrimaryBtn>
+                        </div>
+                    </motion.div>    
+                )}
+            </AnimatePresence>
         </div>
     </nav>
   )
