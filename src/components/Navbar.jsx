@@ -69,7 +69,7 @@ const Navbar = () => {
                     x: -500
                 }}
                 
-                id='mobileNav' className="flex flex-col gap-10 items-center justify-center backdrop-blur-2xl h-screen
+                id='mobileNav' className="flex flex-col gap-10 items-center justify-center backdrop-blur-2xl h-[90vh]
                 absolute top-0 right-0 left-0">
                     <ul className='flex flex-col justify-center items-center gap-10'>
                         {navItems.map((item, index) => (
